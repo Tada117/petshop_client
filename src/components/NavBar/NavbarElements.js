@@ -5,7 +5,7 @@ import { BiSearchAlt, BiUser } from "react-icons/bi";
 import { IoCartOutline } from "react-icons/io5";
 
 export const Nav = styled.nav`
-  background: var(--color-background);
+  background: var(--color-black);
   height: 80px;
   display: -webkit-box;
   -webkit-box-align: center;
@@ -14,7 +14,7 @@ export const Nav = styled.nav`
   z-index: 10;
 `;
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: var(--color-white);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -23,7 +23,7 @@ export const NavLink = styled(Link)`
   cursor: pointer;
 
   &.active {
-    color: #15cdfc;
+    color: var(--color-yellow);
   }
 `;
 export const Bars = styled(FaBars)`
@@ -54,7 +54,7 @@ export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: red;
+  color: var(--color-white);
   font-size: 2rem;
 
   &.active {
@@ -91,10 +91,14 @@ export const NavSearchBar = styled.input`
   height: 30px;
   font-size: 16px;
   margin: auto 0;
-  color: red;
 `;
 export const NavBtnCart = styled(IoCartOutline)`
   margin: 0 5px;
 `;
 export const NavBtnUser = styled(BiUser)``;
-export const NavBtnSearch = styled(BiSearchAlt)``;
+export const NavBtnSearch = styled(BiSearchAlt)`
+  color: #fff;
+  &.active {
+    color: #15cdfc;
+  }
+`;
