@@ -1,10 +1,16 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 375px;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1a202c;
 }
 
 code {
@@ -14,4 +20,10 @@ code {
 :root {
   --color-text: black;
   --color-background: lightgray;
+
+  --color-black: #202020;
+  --color-dark-grey: #3f3f3f;
+  --color-medium-grey: #707070;
+  --color-yellow: #ffdf6c;
+  --color-white: #ffffff;
 }
