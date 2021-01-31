@@ -7,7 +7,7 @@ const Banner = () => {
   return (
     <div className="banner-section">
       <div className="banner-container">
-        <div className="banner__title">Making Your Pet Happier</div>
+        {/* <div className="banner__title">Making Your Pet Happier</div> */}
         <div className="banner__img">
           <img src={banner} alt="" />
         </div>

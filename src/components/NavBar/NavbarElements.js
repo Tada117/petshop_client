@@ -5,7 +5,7 @@ import { BiSearchAlt, BiUser } from "react-icons/bi";
 import { IoCartOutline } from "react-icons/io5";
 
 export const Nav = styled.nav`
-  background: var(--color-black);
+  background: #fe644c;
   height: 80px;
   display: -webkit-box;
   -webkit-box-align: center;

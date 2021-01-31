@@ -1,14 +1,14 @@
 .banner-section {
   max-width: 1344px;
-  margin: 0 auto;
+  margin: 60px auto 60px auto;
   padding: 0 40px;
+
   @media screen and (max-width: 768px) {
     padding: 0 20px;
   }
 
   .banner-container {
     position: relative;
-    top: 20px;
     margin: 0 auto;
     max-width: 1344px;
     .banner__img {

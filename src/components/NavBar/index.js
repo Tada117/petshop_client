@@ -6,8 +6,8 @@ import {
   Bars,
   NavMenu,
   NavBtn,
-  NavBtnLink,
-  NavSearchBar,
+  // NavBtnLink,
+  // NavSearchBar,
   NavBtnCart,
   NavBtnUser,
   NavBtnSearch,
@@ -23,18 +23,10 @@ const Navbar = () => {
       </NavLink>
       <Bars />
       <NavMenu>
-        <NavLink to="/about" activeStyle>
-          About
-        </NavLink>
-        <NavLink to="/services" activeStyle>
-          Services
-        </NavLink>
-        <NavLink to="/contact-us" activeStyle>
-          Contact Us
-        </NavLink>
-        <NavLink to="/blog" activeStyle>
-          Blog
-        </NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/services">Services</NavLink>
+        <NavLink to="/contact-us">Contact Us</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
         {/* <NavSearchBar /> */}
         <div className="wrapper">
           {show ? (
