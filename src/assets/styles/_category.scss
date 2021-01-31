@@ -4,6 +4,9 @@
   padding: 0 48px;
   display: flex;
   justify-content: space-between;
+  .category__title {
+    flex: 0 0 100%;
+  }
   .category__item {
     display: flex;
     align-items: center;

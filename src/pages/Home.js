@@ -50,7 +50,7 @@ function Home(props) {
       <Banner />
 
       <div className="category__container">
-        <h2>Browse Category</h2>
+        <h2 className="category__title">Browse Category</h2>
         {categories.map((category) => (
           <CategoryItem
             key={category._id}
