@@ -9,7 +9,7 @@ const ProductItem = ({ imgUrl, name, price, description, categoryName }) => {
       <span className="product__name">{name}</span>
       <span className="product__price">{price}</span>
       <span className="product__description">{description}</span>
-      <span className="product__categoryName">{categoryName}</span>
+      <span className="product__category-name">{categoryName}</span>
     </div>
   );
 };

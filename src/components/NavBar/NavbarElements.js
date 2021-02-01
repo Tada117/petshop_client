@@ -7,14 +7,25 @@ import { IoCartOutline } from "react-icons/io5";
 export const Nav = styled.nav`
   background: #fe644c;
   height: 80px;
-  display: -webkit-box;
-  -webkit-box-align: center;
-  -webkit-box-pack: justify;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
-  z-index: 10;
+  z-index: 999;
+`;
+export const NavMenu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 export const NavLink = styled(Link)`
-  color: var(--color-white);
+  color: white;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -40,26 +51,12 @@ export const Bars = styled(FaBars)`
     cursor: pointer;
   }
 `;
-export const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: -24px;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: var(--color-white);
   font-size: 2rem;
-
-  &.active {
-    color: #15cdfc;
-  }
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -83,7 +80,7 @@ export const NavBtnLink = styled(Link)`
   }
 `;
 export const NavSearchBar = styled.input`
-  position: relative;
+  /* position: relative; */
   text-decoration: none;
   outline: none;
   border-radius: 40px;
@@ -92,13 +89,8 @@ export const NavSearchBar = styled.input`
   font-size: 16px;
   margin: auto 0;
 `;
-export const NavBtnCart = styled(IoCartOutline)`
-  margin: 0 5px;
-`;
+export const NavBtnCart = styled(IoCartOutline)``;
 export const NavBtnUser = styled(BiUser)``;
 export const NavBtnSearch = styled(BiSearchAlt)`
   color: #fff;
-  &.active {
-    color: #15cdfc;
-  }
 `;

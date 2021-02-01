@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import nextIcon from "../assets/images/next.png";
-import prevIcon from "../assets/images/pre.png";
+import { GrPrevious } from "react-icons/gr";
+import { GrNext } from "react-icons/gr";
 
 import Banner from "../components/Banner";
 import CategoryItem from "../components/common/CategoryItem";
@@ -41,7 +41,7 @@ function Home(props) {
     const slide = myRef.current;
     slide.scrollLeft += slide.offsetWidth;
     if (slide.scrollLeft >= slide.scrollWidth - slide.offsetWidth) {
-      slide.scrollLeft -= slide.scrollWidth;
+      slide.scrollLeft = 0;
     }
   };
 
@@ -59,8 +59,14 @@ function Home(props) {
           />
         ))}
       </div>
-      <h2>Explore out Products</h2>
       <div className="products-slider">
+        <h2>Explore out Products</h2>
+        <div className="slick-arrow slick-prev" onClick={prevClick}>
+          <GrPrevious />
+        </div>
+        <div className="slick-arrow slick-next" onClick={nextClick}>
+          <GrNext />
+        </div>
         <div className="products__container" ref={myRef}>
           {products.map((item) => (
             <ProductItem
@@ -71,14 +77,6 @@ function Home(props) {
               categoryName={item.categoryName}
             />
           ))}
-        </div>
-        <div className="row">
-          <div className="pre" onClick={prevClick}>
-            <img src={prevIcon} alt="" />
-          </div>
-          <div className="next" onClick={nextClick}>
-            <img src={nextIcon} alt="" />
-          </div>
         </div>
       </div>
     </div>
