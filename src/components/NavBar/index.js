@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 
+import SearchBar from "../common/SearchBar";
+
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { BiSearchAlt, BiUser } from "react-icons/bi";
-import { IoCartOutline } from "react-icons/io5";
-import { TiTimes } from "react-icons/ti";
+// import { IoCartOutline } from "react-icons/io5";
 
 import "../../assets/styles/_navBar.scss";
 
 const Navbar = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const toggleClass = () => {
     setShow(!show);
   };
+
   return (
     <nav className="nav__container">
       <ul>
-        <li className="nav__logo">Pet Store</li>
+        <li className="nav__logo">
+          <NavLink to="/">Pet Store</NavLink>
+        </li>
         <li className="nav__burger" onClick={toggleClass}>
           {" "}
           <FaBars />
@@ -38,13 +41,9 @@ const Navbar = () => {
             <NavLink to="/contact">Contact</NavLink>
           </li>
         </div>
-        {/* <div className="nav__cancel-icon">
-          <TiTimes />
-        </div> */}
-        <li className="nav__search-icon">
-          <input type="search" placeholder="Search..." />
 
-          <BiSearchAlt />
+        <li className="nav__search-icon">
+          <SearchBar />
         </li>
       </ul>
     </nav>
