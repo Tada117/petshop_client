@@ -9,8 +9,22 @@ function getProduct() {
       return response.data;
     });
 }
+
+function getSearchResult(value) {
+  return axios
+    .post(CF_ROUTE_PRODUCT.GET_SEARCH_RESULT, {
+      // ????
+      searchTerm: value,
+    })
+
+    .then((respone) => {
+      return respone.data;
+    });
+}
+
 const productService = {
   getProduct,
+  getSearchResult,
   //
 };
 

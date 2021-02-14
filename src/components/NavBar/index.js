@@ -10,9 +10,6 @@ import "../../assets/styles/_navBar.scss";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-  const toggleClass = () => {
-    setShow(!show);
-  };
 
   return (
     <nav className="nav__container">
@@ -20,7 +17,7 @@ const Navbar = () => {
         <li className="nav__logo">
           <NavLink to="/">Pet Store</NavLink>
         </li>
-        <li className="nav__burger" onClick={toggleClass}>
+        <li className="nav__burger" onClick={() => setShow(!show)}>
           {" "}
           <FaBars />
         </li>
