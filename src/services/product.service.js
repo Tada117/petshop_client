@@ -10,10 +10,18 @@ function getProduct() {
     });
 }
 
+function getProductDetail(id) {
+  return axios
+    .get(`${CF_ROUTE_PRODUCT.GET_PRODUCT_DETAIL}/${id}`)
+
+    .then((response) => {
+      return response.data;
+    });
+}
+
 function getSearchResult(value) {
   return axios
     .post(CF_ROUTE_PRODUCT.GET_SEARCH_RESULT, {
-      // ????
       searchTerm: value,
     })
 
@@ -24,6 +32,7 @@ function getSearchResult(value) {
 
 const productService = {
   getProduct,
+  getProductDetail,
   getSearchResult,
   //
 };

@@ -1,64 +1,39 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
-import { BiSearchAlt, BiUser } from "react-icons/bi";
-import productService from "../../services/product.service";
-import ProductItem from "./ProductItem";
+import { Link } from "react-router-dom";
+
+import { BiSearchAlt } from "react-icons/bi";
+
 import "../../assets/styles/_navBar.scss";
+import productService from "../../services/product.service";
 import useDebounce from "./useDebounce";
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = () => {
   const [isVisible, setVisibility] = useState(false);
 
   const [searchResult, setSearchResult] = useState([]); //search results list
-  const [searchTerm, setSearchTerm] = useState(""); //search
-  // const [filteredProduct, setFilteredProduct] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const [isSearching, setIsSearching] = useState(false);
 
-  // const typingTimeOutRef = useRef(null);
-
-  //API search function
   useEffect(() => {
-    productService.getSearchResult(searchTerm).then((data) => {
-      setSearchResult(data);
-      console.log("Search Result:", searchTerm);
-    });
-  }, []);
-
-  useEffect(
-    () => {
-      // Make sure we have a value (user has entered something in input)
-      if (debouncedSearchTerm) {
-        // Set isSearching state
-        // setIsSearching(true);
-        // Fire off our API call
-        productService
-          .getSearchResult(debouncedSearchTerm)
-          .then((searchResult) => {
-            // Set back to false since request finished
-            // setIsSearching(false);
-            // Set results state
-            setSearchResult(searchResult);
-          });
-      } else {
-        setSearchResult([]);
-      }
-    },
-    // This is the useEffect input array
-    // Our useEffect function will only execute if this value changes ...
-    // ... and thanks to our hook it will only change if the original ...
-    // value (searchTerm) hasn't changed for more than 500ms.
-    [debouncedSearchTerm]
-  );
-
-  // useEffect(() => {
-  //   setFilteredProduct(
-  //     searchResult.filter((item) =>
-  //       item.product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  //     )
-  //   );
-  // }, [searchTerm, searchResult]);
+    if (debouncedSearchTerm) {
+      // console.log(debouncedSearchTerm);
+      // Set isSearching state
+      setIsSearching(true);
+      // Fire off our API call
+      productService.getSearchResult(debouncedSearchTerm).then((data) => {
+        // Set back to false since request finished
+        setIsSearching(false);
+        // Set results state
+        setSearchResult(data);
+        setVisibility(true);
+      });
+    } else {
+      setSearchResult([]);
+    }
+  }, [debouncedSearchTerm]);
 
   return (
     <>
@@ -67,14 +42,16 @@ const SearchBar = ({ onSubmit }) => {
         placeholder="Search..."
         // value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        onClick={() => setVisibility(!isVisible)}
       />
       <BiSearchAlt />
+      {isSearching && <div className="search-result">Searching ...</div>}
       {isVisible && (
         <div className="search-result">
           <ul className="list-group">
             {searchResult.map((result) => (
-              <li key={result._id}>{result.name}</li>
+              <Link key={result._id} to={`/shop/${result._id}`}>
+                <li>{result.name}</li>
+              </Link>
             ))}
           </ul>
         </div>

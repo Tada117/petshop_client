@@ -1,0 +1,103 @@
+.detail__container {
+  display: flex;
+  padding: 10px;
+  .detail__img {
+    background: rebeccapurple;
+    flex: 1;
+    & img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  .detail__info {
+    flex: 2;
+    background: palegreen;
+    padding: 20px;
+
+    &--name {
+      font-size: 25px;
+      font-weight: bold;
+      color: #f68930;
+      background: black;
+      padding: 10px;
+      border-bottom: 1px dashed red;
+    }
+    &--des {
+      white-space: pre-wrap;
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 30px;
+      background: blue;
+    }
+    &--price {
+      font-size: 26px;
+      font-weight: bolder;
+      color: red;
+
+      &::after {
+        content: " VND";
+      }
+    }
+  }
+}
+.qty-group {
+  background: violet;
+
+  .qty__input {
+    display: flex;
+    width: 112px;
+    height: 30px;
+    border: 0.5px solid green;
+    &--btn {
+      display: inline-block;
+      border: none;
+      padding: 5px;
+      margin: 0;
+      text-decoration: none;
+      background: white;
+      cursor: pointer;
+      text-align: center;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      &:hover,
+      :focus {
+        opacity: 0.9;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    &--field {
+      border: none;
+      outline: none;
+      width: 50px;
+      height: 100%;
+      text-align: center;
+      border-left: 0.5px solid green;
+      border-right: 0.5px solid green;
+    }
+  }
+}
+.cart-btn {
+  background: #f68930;
+  margin-top: 20px;
+
+  & button {
+    background: red;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    &:hover,
+    :focus {
+      opacity: 0.9;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}

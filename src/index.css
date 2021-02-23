@@ -15,7 +15,9 @@ body {
 }
 
 .page {
-  background-color: #ffffff;
+  background-color: yellow;
+  width: 1240px;
+  margin: 0 auto 0;
 }
 
 code {

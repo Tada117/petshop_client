@@ -22,9 +22,7 @@ function Home(props) {
   }, []);
   useEffect(() => {
     productService.getProduct().then((data) => {
-      // const products = data;
       setProducts(data);
-      console.log(data);
     });
   }, []);
 
