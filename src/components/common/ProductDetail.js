@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import productService from "../../services/product.service";
 import "../../assets/styles/_detailPage.scss";
+import { addToCart } from "../../redux/actions/cart";
+import { Link } from "react-router-dom";
 
 const ProductDetail = ({ match }) => {
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [disable, setDisable] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     productService.getProductDetail(match.params.id).then((data) => {
@@ -30,7 +35,10 @@ const ProductDetail = ({ match }) => {
     setQuantity(inputValue);
   };
 
-  console.log(product);
+  const handleAddToCartClick = (product) => {
+    dispatch(addToCart(product));
+    console.log(product);
+  };
 
   return (
     <div className="page">
@@ -74,10 +82,16 @@ const ProductDetail = ({ match }) => {
             </div>
           </div>
           <div className="cart-btn">
-            <button>Add to cart</button>
+            <button onClick={() => handleAddToCartClick(product)}>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
+
+      <Link to={`/cart`}>
+        <button>hehe</button>
+      </Link>
     </div>
   );
 };

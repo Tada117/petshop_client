@@ -1,9 +1,13 @@
 import React from "react";
 
-function CartItem() {
+function CartItem({ cartItem }) {
   return (
     <div>
-      <ul></ul>
+      <ul>
+        {cartItem.map((item) => (
+          <li>{item.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
