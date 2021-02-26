@@ -1,13 +1,36 @@
-export const addToCart = (product) => {
-  return {
-    type: "ADD_TO_CART",
+import {
+  SHOW_CART,
+  ADD_ITEM,
+  DELETE_ITEM,
+  UPDATE_PRICE,
+  DECREMENT_QTY,
+} from "./actionTypes";
+
+export const addItem = (product) => (dispatch) => {
+  dispatch({
+    type: ADD_ITEM,
     payload: product,
-  };
+  });
+  dispatch(updatePrice());
 };
 
-export const setActiveHobby = (id) => {
-  return {
-    type: "DELET_FROM_CART",
+export const decrementQty = (product) => (dispatch) => {
+  dispatch({
+    type: DECREMENT_QTY,
+    payload: product,
+  });
+  dispatch(updatePrice());
+};
+export const deleteItem = (id) => (dispatch) => {
+  dispatch({
+    type: DELETE_ITEM,
     payload: id,
+  });
+  dispatch(updatePrice());
+};
+
+export const updatePrice = () => {
+  return {
+    type: UPDATE_PRICE,
   };
 };

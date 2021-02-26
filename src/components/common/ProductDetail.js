@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import productService from "../../services/product.service";
 import "../../assets/styles/_detailPage.scss";
-import { addToCart } from "../../redux/actions/cart";
+import { addItem } from "../../redux/actions/cart";
 import { Link } from "react-router-dom";
 
 const ProductDetail = ({ match }) => {
@@ -36,8 +36,7 @@ const ProductDetail = ({ match }) => {
   };
 
   const handleAddToCartClick = (product) => {
-    dispatch(addToCart(product));
-    console.log(product);
+    dispatch(addItem(product));
   };
 
   return (
@@ -69,7 +68,7 @@ const ProductDetail = ({ match }) => {
               <input
                 className="qty__input--field"
                 pattern="^-?[0-9]\d*\.?\d*$"
-                type="text"
+                type="number"
                 value={quantity}
                 onChange={handleOnChange}
               />
@@ -88,10 +87,6 @@ const ProductDetail = ({ match }) => {
           </div>
         </div>
       </div>
-
-      <Link to={`/cart`}>
-        <button>hehe</button>
-      </Link>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 import SearchBar from "../common/SearchBar";
-
-import { NavLink } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 // import { IoCartOutline } from "react-icons/io5";
 
@@ -41,6 +41,11 @@ const Navbar = () => {
 
         <li className="nav__search-icon">
           <SearchBar />
+        </li>
+        <li className="nav__icon">
+          <Link to={`/cart`}>
+            <AiOutlineShoppingCart />
+          </Link>
         </li>
       </ul>
     </nav>

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import { BiSearchAlt } from "react-icons/bi";
-
 import "../../assets/styles/_navBar.scss";
 import productService from "../../services/product.service";
 import useDebounce from "./useDebounce";
@@ -43,7 +41,7 @@ const SearchBar = () => {
         // value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <BiSearchAlt />
+
       {isSearching && <div className="search-result">Searching ...</div>}
       {isVisible && (
         <div className="search-result">
