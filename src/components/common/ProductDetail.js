@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+
+import { Link } from "react-router-dom";
 
 import productService from "../../services/product.service";
+import formatCurrency from "../../utils/formatCurreny";
 import "../../assets/styles/_detailPage.scss";
 import { addItem } from "../../redux/actions/cart";
-import { Link } from "react-router-dom";
 
 const ProductDetail = ({ match }) => {
   const [product, setProduct] = useState({});
@@ -38,7 +40,7 @@ const ProductDetail = ({ match }) => {
   const handleAddToCartClick = (product) => {
     dispatch(addItem(product));
   };
-
+  console.log(product);
   return (
     <div className="page">
       <div className="detail__container">
@@ -51,7 +53,9 @@ const ProductDetail = ({ match }) => {
 
           <p className="detail__info--des">{product.description}</p>
           <br />
-          <span className="detail__info--price">Price: {product.price}</span>
+          <span className="detail__info--price">
+            Price: {formatCurrency(product.price)}
+          </span>
           <div className="qty-group">
             <h3>Số Lượng</h3>
             <div className="qty__input">

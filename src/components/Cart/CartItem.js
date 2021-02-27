@@ -1,14 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import formatCurrency from "../../utils/formatCurreny";
 import { addItem, decrementQty, deleteItem } from "../../redux/actions/cart";
 
 function CartItem({ cartItem }) {
   const dispatch = useDispatch();
-
-  // const handleDecrQty = (item) => {
-  //   dispatch(decrementQty(item));
-  //   console.log(item);
-  // };
   const handleIncrQty = (item) => {
     dispatch(addItem(item));
   };
@@ -18,11 +15,6 @@ function CartItem({ cartItem }) {
       : dispatch(deleteItem(item._id));
   };
 
-  // if (item.cartCounter > 1) {
-  //   dispatch(decrementQty(item));
-  // } else {
-  //   dispatch(deletItem(item));
-  // }
   return (
     <>
       {cartItem.itemList.map((item) => (
@@ -40,7 +32,9 @@ function CartItem({ cartItem }) {
               -
             </div>
           </div>
-          <div className="item__price center-text">{item.price}</div>
+          <div className="item__price center-text">
+            {formatCurrency(item.price)}
+          </div>
         </div>
       ))}
     </>

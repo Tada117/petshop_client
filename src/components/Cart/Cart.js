@@ -12,15 +12,20 @@ function Cart() {
       return itemList;
     }
   }, [itemList]);
-  console.log("itemList in Cart cpn:", itemList);
+
   return (
     <div className="page">
-      <div className="cart__container">
-        <div>
-          <CartItem cartItem={itemList} />
+      {itemList.itemList.length === 0 ? (
+        <div className="cart__empty">Cart is empty</div>
+      ) : (
+        <div className="cart__container">
+          <div className="cart-item__container">
+            <CartItem cartItem={itemList} />
+          </div>
+
+          <div className="cart__total">Total{itemList.totalPrice}</div>
         </div>
-        <div className="cart__total">Total{itemList.totalPrice}</div>
-      </div>
+      )}
     </div>
   );
 }

@@ -22,9 +22,7 @@ const SearchBar = () => {
       setIsSearching(true);
       // Fire off our API call
       productService.getSearchResult(debouncedSearchTerm).then((data) => {
-        // Set back to false since request finished
         setIsSearching(false);
-        // Set results state
         setSearchResult(data);
         setVisibility(true);
       });
@@ -38,14 +36,13 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search..."
-        // value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
       {isSearching && <div className="search-result">Searching ...</div>}
       {isVisible && (
         <div className="search-result">
-          <ul className="list-group">
+          <ul className="list-results">
             {searchResult.map((result) => (
               <Link key={result._id} to={`/shop/${result._id}`}>
                 <li>{result.name}</li>

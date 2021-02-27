@@ -8,3 +8,6 @@ export const CF_ROUTE_PRODUCT = {
 export const CF_ROUTE_CATEGORY = {
   GET_CATEGORIES: `${API_URL}/api/categories/`,
 };
+export const CF_ROUTE_USER = {
+  REGISTER: `${API_URL}/api/customers/register`,
+};

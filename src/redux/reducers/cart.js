@@ -30,10 +30,6 @@ const cartReducer = (state = initialState, action) => {
                 ? { ...item, cartCounter: ++item.cartCounter }
                 : item
             ),
-        // totalPrice: state.itemList.reduce(
-        //   (acc, val) => acc + val.cartCounter * val.price,
-        //   0
-        // ),
       };
     }
 
@@ -45,10 +41,6 @@ const cartReducer = (state = initialState, action) => {
             ? { ...item, cartCounter: --item.cartCounter }
             : item
         ),
-        // totalPrice: state.itemList.reduce(
-        //   (acc, val) => acc + val.cartCounter * val.price,
-        //   0
-        // ),
       };
     }
     case DELETE_ITEM: {
@@ -62,7 +54,7 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         totalPrice: state.itemList
           .reduce((acc, val) => acc + val.cartCounter * val.price, 0)
-          .toFixed(2),
+          .toLocaleString("it-IT", { style: "currency", currency: "VND" }),
       };
     }
     default:
