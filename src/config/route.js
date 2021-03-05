@@ -11,3 +11,6 @@ export const CF_ROUTE_CATEGORY = {
 export const CF_ROUTE_USER = {
   REGISTER: `${API_URL}/api/customers/register`,
 };
+export const CF_ROUTE_PARENT_CATEGORY = {
+  GET_PARENT_CATEGORIES: `${API_URL}/api/parentCategories/`,
+};

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import CartItem from "./CartItem";
 import "./Cart.scss";
 import { useSelector } from "react-redux";

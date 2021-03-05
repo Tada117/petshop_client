@@ -38,7 +38,6 @@ const SearchBar = () => {
         placeholder="Search..."
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-
       {isSearching && <div className="search-result">Searching ...</div>}
       {isVisible && (
         <div className="search-result">

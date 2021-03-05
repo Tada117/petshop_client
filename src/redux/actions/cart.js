@@ -1,5 +1,4 @@
 import {
-  SHOW_CART,
   ADD_ITEM,
   DELETE_ITEM,
   UPDATE_PRICE,

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import formatCurrency from "../../utils/formatCurreny";
 import { addItem, decrementQty, deleteItem } from "../../redux/actions/cart";

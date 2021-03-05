@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { Link } from "react-router-dom";
-
 import productService from "../../services/product.service";
 import formatCurrency from "../../utils/formatCurreny";
 import "../../assets/styles/_detailPage.scss";
