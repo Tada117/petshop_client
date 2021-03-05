@@ -2,7 +2,6 @@
   display: flex;
   padding: 10px;
   .detail__img {
-    background: rebeccapurple;
     flex: 1;
     & img {
       display: block;
@@ -11,15 +10,15 @@
   }
   .detail__info {
     flex: 2;
-    background: palegreen;
     padding: 20px;
 
     &--name {
       font-size: 25px;
       font-weight: bold;
+      line-height: 46px;
       color: #f68930;
-      background: black;
-      padding: 10px;
+      /* padding: 10px; */
+      text-align: center;
       border-bottom: 1px dashed red;
     }
     &--des {
@@ -27,7 +26,6 @@
       margin-top: 20px;
       font-size: 18px;
       line-height: 30px;
-      background: blue;
     }
     &--price {
       font-size: 26px;
@@ -37,8 +35,6 @@
   }
 }
 .qty-group {
-  background: violet;
-
   .qty__input {
     display: flex;
     width: 112px;
@@ -56,7 +52,6 @@
       padding: 5px;
       margin: 0;
       text-decoration: none;
-      background: white;
       cursor: pointer;
       text-align: center;
       -webkit-appearance: none;
@@ -81,16 +76,14 @@
   }
 }
 .cart-btn {
-  background: #f68930;
   margin-top: 20px;
 
   & button {
-    background: red;
     border: none;
     padding: 15px;
     border-radius: 10px;
     cursor: pointer;
-
+    background: #fe644c;
     color: white;
     font-size: 24px;
     font-weight: 600;
