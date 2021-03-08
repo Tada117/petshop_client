@@ -16,7 +16,7 @@ body {
 
 .page {
   /* background-color: yellow; */
-  width: 1240px;
+  // width: 1344px;
   margin: 0 auto 0;
 }
 
@@ -62,4 +62,9 @@ code {
   --color-medium-grey: #707070;
   --color-yellow: #ffdf6c;
   --color-white: #ffffff;
+
+  --desktop-width: 1344px;
+  --laptop-width: 1024px;
+  --tablet-width: 768px;
+  --mobile-width: 375px;
 }

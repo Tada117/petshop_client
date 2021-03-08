@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { RiAccountCircleLine } from "react-icons/ri";
 
+import logo from "../../assets/images/logo.png";
 import "../../assets/styles/_navBar.scss";
 import "../../components/Modal/account.scss";
 
@@ -44,7 +45,7 @@ const Navbar = (props) => {
       <nav className="nav-container">
         {/* 1: LOGO */}
         <div className="nav__logo">
-          <NavLink to="/">PET SHOP</NavLink>
+          <img src={logo} alt="" />
         </div>
         {/* 2: BURGER */}
         <div className="nav__burger" onClick={() => setShow(!show)}>
