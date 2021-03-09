@@ -144,13 +144,16 @@
 .cat-container {
   position: absolute;
   top: 60px;
-  width: 1344px;
-  height: auto;
-  display: block;
   left: 0px;
+
+  max-width: 1344px;
+  width: 100%;
+  height: auto;
+
   background: #ffffff;
   z-index: 2;
   padding: 10px;
+
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -183,8 +186,8 @@
 //Laptop RWD
 @media screen and (max-width: 1024px) {
   .nav-container {
-    padding: 0 20px;
-    max-width: 1024px;
+    margin: 0 40px;
+    // max-width: 100%;
   }
 
   .nav__items {
@@ -193,12 +196,13 @@
   }
   .nav-control {
     justify-content: space-between;
+    flex: 3;
   }
 }
 //Tablet RWD
 @media screen and (max-width: 768px) {
   .nav-container {
-    padding: 0;
+    margin: 0 20px;
   }
   .nav__logo {
     display: none !important;
@@ -244,5 +248,10 @@
   }
   .cat-container {
     display: none;
+  }
+}
+@media screen and (max-width: 375px) {
+  .nav-container {
+    margin: 0 auto;
   }
 }

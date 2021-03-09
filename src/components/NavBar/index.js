@@ -39,12 +39,13 @@ const Navbar = (props) => {
 
   const history = useHistory();
   const handleCartClick = () => history.push("/cart");
+  const handleLogoClick = () => history.push("/");
 
   return (
     <>
       <nav className="nav-container">
         {/* 1: LOGO */}
-        <div className="nav__logo">
+        <div onClick={handleLogoClick} className="nav__logo">
           <img src={logo} alt="" />
         </div>
         {/* 2: BURGER */}
