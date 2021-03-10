@@ -188,7 +188,6 @@
 //Laptop RWD
 @media screen and (max-width: 1024px) {
   .nav-container {
-    margin: 0 40px;
     // max-width: 100%;
   }
 
@@ -197,14 +196,14 @@
     background: #ffffff;
   }
   .nav-control {
-    justify-content: space-between;
-    flex: 3;
+    justify-content: space-between !important;
+    flex: 3 !important;
   }
 }
 //Tablet RWD
 @media screen and (max-width: 768px) {
   .nav-container {
-    margin: 0 20px;
+    // margin: 0 20px;
   }
   .nav__logo {
     display: none !important;
@@ -220,6 +219,7 @@
 
   .nav-control {
     flex: 5 !important;
+    justify-content: space-evenly !important;
     // &__search-bar > input {
     //   width: 300px !important;
     // }

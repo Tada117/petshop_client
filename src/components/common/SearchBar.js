@@ -43,7 +43,7 @@ const SearchBar = () => {
         <div className="search-result">
           <ul className="list-results">
             {searchResult.map((result) => (
-              <Link key={result._id} to={`/shop/${result._id}`}>
+              <Link key={result._id} to={`/shop/products/${result._id}`}>
                 <li>{result.name}</li>
               </Link>
             ))}

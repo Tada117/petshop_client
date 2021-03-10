@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Roboto:wght@300&display=swap");
+
 //wrapper
 .products-slider {
   position: relative;
@@ -15,48 +18,6 @@
     display: flex;
     overflow: hidden;
     margin-top: 40px;
-  }
-  .product__item {
-    min-width: 20%;
-    overflow: hidden;
-    padding: 5px;
-    border: 3px solid white;
-    border: 0.5px solid #e4cece;
-
-    @media (max-width: 928px) {
-      min-width: 25%;
-    }
-    @media (max-width: 720px) {
-      min-width: 50%;
-    }
-
-    @media (max-width: 550px) {
-      min-width: 100%;
-    }
-
-    .product__img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-    .product__name {
-      text-transform: uppercase;
-      font-weight: bold;
-      margin-top: 10px;
-      margin: 5px 0;
-    }
-    .product__price {
-      display: block;
-      &::before {
-        content: "Price: ";
-      }
-    }
-    .product__category-name {
-      &::before {
-        content: "Category: ";
-      }
-    }
   }
 }
 
@@ -83,4 +44,48 @@
 }
 .slick-next {
   right: 0px;
+}
+.product__item {
+  width: 250px;
+  height: 400px;
+  position: relative;
+  padding: 20px;
+  /* background: #f6f7fb; */
+  border: 0.5px solid #f6f7fb;
+  /* margin: 20px; */
+
+  .product__img {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin-bottom: 25px;
+    & > img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+  .product__name {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "Fira Sans", sans-serif;
+    margin-top: 10px;
+    margin: 5px 0;
+  }
+  .product__price {
+    display: block;
+    display: block;
+    color: #ff6124;
+    margin-top: 10px;
+    &::before {
+      content: "Price: ";
+    }
+  }
 }

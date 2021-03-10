@@ -33,7 +33,7 @@ function Home(props) {
   return (
     <div className="page">
       <Banner />
-      <div className="products-slider">
+      {/* <div className="products-slider">
         <h2>Explore out Products</h2>
         <div className="slick-arrow slick-prev" onClick={prevClick}>
           <GrPrevious />
@@ -52,7 +52,7 @@ function Home(props) {
             />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

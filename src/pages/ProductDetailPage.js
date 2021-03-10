@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import productService from "../../services/product.service";
-import formatCurrency from "../../utils/formatCurreny";
-import "../../assets/styles/_detailPage.scss";
-import { addItem } from "../../redux/actions/cart";
+import productService from "../services/product.service";
+import formatCurrency from "../utils/formatCurreny";
+import "../assets/styles/_detailPage.scss";
+import { addItem } from "../redux/actions/cart";
 
-const ProductDetail = ({ match }) => {
+const ProductDetailPage = ({ match }) => {
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [disable, setDisable] = useState(false);
@@ -93,4 +93,4 @@ const ProductDetail = ({ match }) => {
   );
 };
 
-export default ProductDetail;
+export default ProductDetailPage;

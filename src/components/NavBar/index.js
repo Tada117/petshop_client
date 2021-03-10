@@ -16,7 +16,7 @@ import "../../components/Modal/account.scss";
 
 import { useHistory } from "react-router-dom";
 
-const Navbar = (props) => {
+const Navbar = () => {
   useScript("./switchForm.js");
 
   const [show, setShow] = useState(false);

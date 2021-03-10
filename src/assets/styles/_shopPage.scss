@@ -1,0 +1,56 @@
+.shop-container {
+  display: flex;
+
+  .shop-filter {
+    flex: 1;
+    &__title {
+      font-family: "Fira Sans", sans-serif;
+      font-size: 30px;
+      font-weight: bold;
+      background: #f7e8e8;
+      line-height: 50px;
+    }
+    &__category {
+      & > fieldset {
+        border: none;
+        margin: 0 0 20px;
+
+        .filter-input {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+
+        .filter-label {
+          font-family: "Fira Sans", sans-serif;
+          font-weight: 24px;
+        }
+      }
+
+      .filter-p {
+        font-family: "Fira Sans", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        background: #fe644c;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .shop-products {
+    flex: 3;
+
+    &__title {
+      font-family: "Fira Sans", sans-serif;
+      font-size: 30px;
+      font-weight: bold;
+      background: #f8f8f8;
+      line-height: 50px;
+    }
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+  }
+}

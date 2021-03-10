@@ -29,8 +29,9 @@ const bcItem = {
   background: "rgb(243, 197, 190)",
   borderRadius: "10px",
   padding: "5px",
+  textTransform: "capitalize",
 };
-const bcLastItem = {};
+const bcLastItem = { textTransform: "capitalize" };
 
 const Breadcrumbs = (props) => {
   const {
