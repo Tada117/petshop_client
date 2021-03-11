@@ -40,53 +40,51 @@ const ProductDetailPage = ({ match }) => {
   };
   console.log(product);
   return (
-    <div className="page">
-      <div className="detail__container">
-        <div className="detail__img">
-          <img src={`http://localhost:5000/${product.imageUrl}`} alt="" />
-        </div>
-        <div className="detail__info">
-          <span className="detail__info--name">{product.name}</span>
-          <br />
+    <div className="detail__container">
+      <div className="detail__img">
+        <img src={`http://localhost:5000/${product.imageUrl}`} alt="" />
+      </div>
+      <div className="detail__info">
+        <span className="detail__info--name">{product.name}</span>
+        <br />
 
-          <p className="detail__info--des">{product.description}</p>
-          <br />
-          <span className="detail__info--price">
-            Price: {formatCurrency(product.price)}
-          </span>
-          <div className="qty-group">
-            <h3>Số Lượng</h3>
-            <div className="qty__input">
-              <button
-                className="qty__input--btn"
-                disabled={disable}
-                onClick={handleDecrease}
-              >
-                <img
-                  src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg"
-                  alt=""
-                />
-              </button>
-              <input
-                className="qty__input--field"
-                pattern="^-?[0-9]\d*\.?\d*$"
-                type="number"
-                value={quantity}
-                onChange={handleOnChange}
+        <p className="detail__info--des">{product.description}</p>
+        <br />
+        <span className="detail__info--price">
+          Price: {formatCurrency(product.price)}
+        </span>
+        <div className="qty-group">
+          <h3>Số Lượng</h3>
+          <div className="qty__input">
+            <button
+              className="qty__input--btn"
+              disabled={disable}
+              onClick={handleDecrease}
+            >
+              <img
+                src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg"
+                alt=""
               />
-              <button className="qty__input--btn" onClick={handleIncrease}>
-                <img
-                  src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg"
-                  alt=""
-                />
-              </button>
-            </div>
-          </div>
-          <div className="cart-btn">
-            <button onClick={() => handleAddToCartClick(product)}>
-              Add to cart
+            </button>
+            <input
+              className="qty__input--field"
+              pattern="^-?[0-9]\d*\.?\d*$"
+              type="number"
+              value={quantity}
+              onChange={handleOnChange}
+            />
+            <button className="qty__input--btn" onClick={handleIncrease}>
+              <img
+                src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg"
+                alt=""
+              />
             </button>
           </div>
+        </div>
+        <div className="cart-btn">
+          <button onClick={() => handleAddToCartClick(product)}>
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

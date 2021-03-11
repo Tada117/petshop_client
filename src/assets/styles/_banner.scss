@@ -1,6 +1,4 @@
-$title-font: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
-$border: 3px solid rgb(175, 169, 169);
-
+@import "./variable.scss";
 .header-section {
   max-width: 1344px;
   margin: 0 auto;
@@ -141,16 +139,19 @@ $border: 3px solid rgb(175, 169, 169);
     &--product {
       font-size: 3rem;
       color: #fff;
-      transition: 0.1s ease-in-out;
+      transition: 0.5s ease-in-out;
       padding: 10px;
       display: flex;
       align-items: center;
+
+      border-radius: 50%;
 
       &:hover {
         color: #fe644c;
       }
       &:active {
-        border-radius: 50%;
+        transition: 0.1s ease-in-out;
+        background: #333;
       }
     }
   }

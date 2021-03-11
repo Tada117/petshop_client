@@ -18,7 +18,7 @@ function Cart() {
   const handleContinueShopping = () => history.push("/");
 
   return (
-    <div className="page">
+    <>
       {itemList.itemList.length === 0 ? (
         <div className="cart__empty">
           <h1>Cart is currently empty</h1>
@@ -38,7 +38,7 @@ function Cart() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

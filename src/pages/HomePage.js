@@ -31,7 +31,7 @@ function Home(props) {
   };
 
   return (
-    <div className="page">
+    <div>
       <Banner />
       {/* <div className="products-slider">
         <h2>Explore out Products</h2>

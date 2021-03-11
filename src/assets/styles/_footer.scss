@@ -1,0 +1,58 @@
+@import "./variable";
+.footer-container {
+  padding: 30px;
+  box-shadow: 0 -5px 6px -6px #777;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+
+  .footer-wrapper {
+    max-width: 1344px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  .footer__group {
+    & > span {
+      font-family: $title-font;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 50px;
+    }
+    &-items {
+      list-style-type: none;
+
+      & > li {
+        font-family: $text-font;
+      }
+    }
+    .footer__input-group {
+      position: relative;
+
+      & > input {
+        width: 300px;
+        height: 40px;
+        outline: none;
+        padding-left: 10px;
+        font-size: 16px;
+        border: $border;
+      }
+      & > button {
+        height: 40px;
+        width: 60px;
+        position: absolute;
+        left: 240px;
+        border: none;
+        background: none;
+        outline: none;
+        background: #fe644c;
+        font-family: $title-font;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+}

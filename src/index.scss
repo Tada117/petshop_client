@@ -17,8 +17,10 @@ body {
 .page {
   /* background-color: yellow; */
   max-width: 1344px;
-  width: 100%;
+  position: relative;
+  min-height: 100vh;
   margin: 0 auto 0;
+  padding-bottom: 350px;
 }
 
 code {

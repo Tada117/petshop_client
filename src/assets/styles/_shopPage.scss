@@ -1,6 +1,5 @@
 .shop-container {
   display: flex;
-
   .shop-filter {
     flex: 1;
     &__title {
@@ -53,4 +52,7 @@
       justify-content: flex-start;
     }
   }
+}
+.wrapper {
+  margin: 0 auto;
 }
