@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
 
 import productService from "../services/product.service";
 import categoryService from "../services/category.service";
 
 import "../assets/styles/_shopPage.scss";
-import { paginate } from "./paginate";
+
 import ProductItem from "../components/common/ProductItem";
-import Pagination from "../components/Pagination/Pagination";
 
 function ShopPage() {
-  const [items, setItems] = useState([]);
   const [pCategory, setPCategory] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [totalItems, setTotalItems] = useState();
+
+  const [items, setItems] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [perPage] = useState(3);
+  const [pageCount, setPageCount] = useState(0);
+
   const [filtered, setFiltered] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -28,40 +34,34 @@ function ShopPage() {
   }, []);
 
   useEffect(() => {
+    getPageData();
+  }, [offset, filtered]);
+
+  const getPageData = () => {
     productService.getProduct().then((data) => {
-      if (filtered) {
-        let filterItem = data.filter((f) => f.product.categoryId === filtered);
-        return setItems(filterItem);
-      }
       setItems(data);
+      const filteredItem = data.filter(
+        (f) => f.product.categoryId === filtered
+      );
+      setItems(filteredItem);
+      const slice = filteredItem.slice(offset, offset + perPage);
+      setItems(slice);
+      setTotalItems(filteredItem.length);
+      setPageCount(Math.ceil(filteredItem.length / perPage));
     });
-  }, [filtered]);
-
+  };
+  //filter by category
   const handleFilterd = (id) => {
+    setOffset(0);
     setFiltered(id);
-    console.log(id);
   };
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  //pagination
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setOffset(selectedPage + 1);
+    console.log("hehe", offset);
   };
-
-  // const getPageData = () => {
-  //   // const {
-  //   //   currentPage,
-  //   //   sortColumn,
-  //   //   selectedGenre,
-  //   //   searchQuery,
-  //   //   movies: allMovies,
-  //   // } = this.state;
-  //   //   let filtered = allMovies;
-  //   //  if (selectedGenre && selectedGenre._id)
-  //   //     filtered = allMovies.filter((m) => m.genre._id === selectedGenre._id);
-  //   // const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
-  //   const items = paginate(currentPage, 10);
-  //   return { data: items };
-  // };
-  // setItems(getPageData());
   return (
     <div className="shop-container">
       <div className="shop-filter">
@@ -95,23 +95,24 @@ function ShopPage() {
       </div>
       <div className="shop-products">
         <div className="shop-products__title">Products</div>
-        {/* <div>We have {totalCount} products</div> */}
-        <Pagination
-          itemsCount={1}
-          pageSize={10}
-          currentPage={currentPage}
-          onPageChange={() => handlePageChange()}
+        <div>We have {items.length} products</div>
+        <ReactPaginate
+          previousLabel={"Prev"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          breakClassName={"break-me"}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
         />
         <div className="wrapper">
           <div className="shop-products__items">
             {items.map((item) => (
-              <ProductItem
-                item={item.product}
-                key={item.product._id}
-                // imgUrl={`http://localhost:5000/${item.product.imageUrl}`}
-                // name={item.product.name}
-                // price={item.product.price}
-              />
+              <ProductItem item={item.product} key={item.product._id} />
             ))}
           </div>
         </div>

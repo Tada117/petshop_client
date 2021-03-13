@@ -1,3 +1,4 @@
+@import "./variable";
 .nav-container {
   background: rgb(255, 255, 255);
   color: #f2f2f2;
@@ -8,7 +9,6 @@
   height: 60px;
   margin: 0 auto;
   display: flex;
-
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
 
   .nav__logo {
@@ -41,7 +41,6 @@
       line-height: 60px;
       text-align: center;
       flex-grow: 1;
-
       cursor: pointer;
 
       &:hover {
@@ -50,10 +49,16 @@
       }
 
       > a {
+        display: block;
         text-decoration: none;
         line-height: 60px;
         padding: 0 12px;
         color: black;
+        font-family: $title-font;
+        transition: 0.2s ease-in-out;
+        &:hover {
+          color: white;
+        }
       }
     }
   }
@@ -78,6 +83,7 @@
         font-size: 16px;
         border: 1px solid #fe644c;
         border-radius: 5px;
+        font-family: $title-font;
       }
     }
     &__icon {

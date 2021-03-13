@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CartItem from "./CartItem";
-import "./Cart.scss";
+import "../../assets/styles/_cart.scss";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 

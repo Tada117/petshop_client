@@ -99,11 +99,13 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      {/* Login/Register Form */}
+
       <Modal open={openAccModal} onClose={() => setOpenAccModal(false)}>
         <div className="form-box">
           <div className="button-box">
             <div id="btn"></div>
-
             <button className="toggle-btn">Login</button>
             <button className="toggle-btn">Register</button>
           </div>
