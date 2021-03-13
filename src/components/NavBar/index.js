@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import SearchBar from "../common/SearchBar";
 import Modal from "../Modal/Modal";
-import useScript from "./useScript";
+
 import categoryService from "../../services/category.service";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -17,8 +17,6 @@ import "../../components/Modal/account.scss";
 import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
-  useScript("./switchForm.js");
-
   const [show, setShow] = useState(false);
   const [showCat, setShowCat] = useState(false);
   const [openAccModal, setOpenAccModal] = useState(false);
@@ -67,11 +65,13 @@ const Navbar = () => {
             {showCat && (
               <div className="cat-container">
                 {pCategory.map((pCat) => (
-                  <div className="cat-group">
+                  <div className="cat-group" key={pCat._id}>
                     <div className="p-cat">{pCat.name}</div>
                     {category.map((cat) =>
                       pCat._id === cat.parentId ? (
-                        <div className="c-cat">{cat.name} </div>
+                        <div className="c-cat" key={cat._id}>
+                          {cat.name}{" "}
+                        </div>
                       ) : null
                     )}
                   </div>

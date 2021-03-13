@@ -33,7 +33,7 @@ function Home(props) {
   return (
     <div>
       <Banner />
-      {/* <div className="products-slider">
+      <div className="products-slider">
         <h2>Explore out Products</h2>
         <div className="slick-arrow slick-prev" onClick={prevClick}>
           <GrPrevious />
@@ -43,16 +43,10 @@ function Home(props) {
         </div>
         <div className="products__container" ref={myRef}>
           {products.map((item) => (
-            <ProductItem
-              key={item.product._id}
-              imgUrl={`http://localhost:5000/${item.product.imageUrl}`}
-              name={item.product.name}
-              price={item.product.price}
-              categoryName={item.categoryName}
-            />
+            <ProductItem key={item.product._id} item={item.product} />
           ))}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

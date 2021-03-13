@@ -8,13 +8,21 @@ import cat from "../assets/images/cat.jpg";
 import hamster from "../assets/images/hamster.jpg";
 import accessories from "../assets/images/accessories.png";
 import "../assets/styles/_banner.scss";
+import { useHistory } from "react-router-dom";
 
 const Banner = () => {
+  const history = useHistory();
+
   return (
     <div className="header-section">
       <div className="top-header-container">
         <h1 className="top-header__title">NEW PRODUCT</h1>
-        <button className="top-header__btn">SHOP NOW</button>
+        <button
+          className="top-header__btn"
+          onClick={() => history.push("/shop")}
+        >
+          SHOP NOW
+        </button>
         <img className="top-header__img" src={banner} alt="" />
       </div>
       <hr className="header-ruler" />

@@ -15,11 +15,13 @@ function ShopPage() {
 
   const [items, setItems] = useState([]);
   const [offset, setOffset] = useState(0);
-  const [perPage] = useState(3);
+
   const [pageCount, setPageCount] = useState(0);
 
   const [filtered, setFiltered] = useState(null);
+  //
   const [currentPage, setCurrentPage] = useState(1);
+  const [perPage] = useState(5);
 
   useEffect(() => {
     categoryService.getParentCategories().then((data) => {
@@ -33,23 +35,27 @@ function ShopPage() {
     });
   }, []);
 
-  useEffect(() => {
-    getPageData();
-  }, [offset, filtered]);
-
   const getPageData = () => {
     productService.getProduct().then((data) => {
-      setItems(data);
-      const filteredItem = data.filter(
-        (f) => f.product.categoryId === filtered
-      );
-      setItems(filteredItem);
-      const slice = filteredItem.slice(offset, offset + perPage);
-      setItems(slice);
-      setTotalItems(filteredItem.length);
-      setPageCount(Math.ceil(filteredItem.length / perPage));
+      if (filtered) {
+        let filterItem = data.filter((f) => f.product.categoryId === filtered);
+        const slice = filterItem.slice(offset, offset + perPage);
+        setPageCount(Math.ceil(filterItem.length / perPage));
+        setTotalItems(filterItem.length);
+        console.log("slice", slice);
+        setItems(slice);
+      } else {
+        const slice = data.slice(offset, offset + perPage);
+        setTotalItems(data.length);
+        setPageCount(Math.ceil(data.length / perPage));
+        setItems(slice);
+        console.log("slice", slice);
+      }
     });
   };
+  useEffect(() => {
+    getPageData();
+  }, [filtered, offset]);
   //filter by category
   const handleFilterd = (id) => {
     setOffset(0);
@@ -59,8 +65,8 @@ function ShopPage() {
   //pagination
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
-    setOffset(selectedPage + 1);
-    console.log("hehe", offset);
+    setOffset(selectedPage + perPage);
+    console.log("hehe", selectedPage);
   };
   return (
     <div className="shop-container">
@@ -68,17 +74,16 @@ function ShopPage() {
         <div className="shop-filter__title">Filter</div>
 
         {pCategory.map((pCat) => (
-          <div className="shop-filter__category">
+          <div className="shop-filter__category" key={pCat._id}>
             <div className="filter-p">{pCat.name}</div>
             {categories.map((cat) =>
               pCat._id === cat.parentId ? (
-                <fieldset id="group">
+                <fieldset id="group" key={cat._id}>
                   <input
                     className="filter-input"
                     name="group"
-                    id={cat._id}
                     type="radio"
-                    value={cat._id}
+                    id={cat._id}
                   />
                   <label
                     className="filter-label"
@@ -95,7 +100,7 @@ function ShopPage() {
       </div>
       <div className="shop-products">
         <div className="shop-products__title">Products</div>
-        <div>We have {items.length} products</div>
+        <div>We have total {totalItems} products</div>
         <ReactPaginate
           previousLabel={"Prev"}
           nextLabel={"Next"}
@@ -103,7 +108,7 @@ function ShopPage() {
           breakClassName={"break-me"}
           pageCount={pageCount}
           marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
+          // pageRangeDisplayed={5}
           onPageChange={handlePageClick}
           containerClassName={"pagination"}
           subContainerClassName={"pages pagination"}
